@@ -4,7 +4,11 @@ class NewsArticle {
   final String urlToImage;
   final String url;
 
-  NewsArticle({this.title, this.description, this.urlToImage, this.url});
+  NewsArticle(
+      {required this.title,
+      required this.description,
+      required this.urlToImage,
+      required this.url});
 
   factory NewsArticle.fromJSON(Map<String, dynamic> json) {
     return NewsArticle(

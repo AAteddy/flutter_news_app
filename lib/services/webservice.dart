@@ -7,7 +7,7 @@ class Webservice {
     String url =
         "https://newsapi.org/v2/top-headlines?country=us&apiKey=28463e4260e24672ad1f981f9c02e1fb";
 
-    final response = await http.get(url);
+    final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
