@@ -12,12 +12,17 @@ class NewsList extends StatelessWidget {
         body: ListView.builder(
           itemCount: vm.articles.length,
           itemBuilder: (context, index) {
+            final article = vm.articles[index];
+
             return ListTile(
               leading: Container(
                   width: 100.0,
                   height: 100.0,
-                  child: Image.network(vm.articles[index].imageURL)),
-              title: Text(vm.articles[index].title),
+                  // ignore: unnecessary_null_comparison
+                  child: article.imageURL == null
+                      ? Image.asset("images/news-placeholder.png")
+                      : Image.network(article.imageURL)),
+              title: Text(article.title),
             );
           },
         ));
