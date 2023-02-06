@@ -3,7 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/viewmodels/newsArticleListViewModel.dart';
 import 'package:provider/provider.dart';
 
-class NewsList extends StatelessWidget {
+class NewsList extends StatefulWidget {
+  const NewsList({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _NewsListState createState() => _NewsListState();
+}
+
+class _NewsListState extends State<NewsList> {
+  @override
+  void initState() {
+    super.initState();
+
+    Provider.of<NewsArticleListViewModel>(context, listen: false)
+        .populateTopHeadlines();
+  }
+
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<NewsArticleListViewModel>(context);
@@ -18,7 +34,7 @@ class NewsList extends StatelessWidget {
               leading: Container(
                   width: 100.0,
                   height: 100.0,
-                  // ignore: unnecessary_null_comparison
+                  // ignore: unnecessary_null_comparison, unrelated_type_equality_checks
                   child: article.imageURL == null
                       ? Image.asset("images/news-placeholder.png")
                       : Image.network(article.imageURL)),

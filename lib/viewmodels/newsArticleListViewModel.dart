@@ -8,10 +8,7 @@ import 'package:flutter_news_app/viewmodels/newsArticleViewModel.dart';
 class NewsArticleListViewModel extends ChangeNotifier {
   List<NewsArticleViewModel> articles = <NewsArticleViewModel>[];
 
-  NewsArticleListViewModel() {
-    _populateTopHeadlines();
-  }
-  Future<void> _populateTopHeadlines() async {
+  Future<void> populateTopHeadlines() async {
     List<NewsArticle> newsArticles = await Webservice().fetchTopHeadlines();
     // ignore: unnecessary_this
     this.articles = newsArticles

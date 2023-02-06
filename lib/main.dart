@@ -14,6 +14,6 @@ class App extends StatelessWidget {
         title: "Fresh News",
         home: ChangeNotifierProvider(
             create: (BuildContext context) => NewsArticleListViewModel(),
-            child: NewsList()));
+            child: const NewsList()));
   }
 }
