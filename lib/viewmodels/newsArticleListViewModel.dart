@@ -8,6 +8,16 @@ import 'package:flutter_news_app/viewmodels/newsArticleViewModel.dart';
 class NewsArticleListViewModel extends ChangeNotifier {
   List<NewsArticleViewModel> articles = <NewsArticleViewModel>[];
 
+  Future<void> search(String keyword) async {
+    List<NewsArticle> newsArticles =
+        await Webservice().fetchHeadlinesbykeword(keyword);
+    // ignore: unnecessary_this
+    this.articles = newsArticles
+        .map((article) => NewsArticleViewModel(article: article))
+        .toList();
+    notifyListeners();
+  }
+
   Future<void> populateTopHeadlines() async {
     List<NewsArticle> newsArticles = await Webservice().fetchTopHeadlines();
     // ignore: unnecessary_this

@@ -34,6 +34,9 @@ class _NewsListPageState extends State<NewsListPage> {
               controller: _controller,
               onSubmitted: (value) {
                 // fetch all the news related to the search keyword
+                if (value.isNotEmpty) {
+                  vm.search(value);
+                }
               },
               decoration: InputDecoration(
                   labelText: "Enter search term",
