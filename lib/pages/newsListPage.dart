@@ -40,12 +40,12 @@ class _NewsListPageState extends State<NewsListPage> {
               },
               decoration: InputDecoration(
                   labelText: "Enter search term",
-                  icon: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  icon: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(Icons.search),
                   ),
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
+                    icon: const Icon(Icons.clear),
                     onPressed: () {
                       _controller.clear();
                     },
