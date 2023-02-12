@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:flutter_news_app/models/newsArticle.dart';
 
 class NewsArticleViewModel {

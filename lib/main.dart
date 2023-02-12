@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/pages/newsList.dart';
+import 'package:flutter_news_app/pages/newsListPage.dart';
 import 'package:flutter_news_app/viewmodels/newsArticleListViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +14,6 @@ class App extends StatelessWidget {
         title: "Fresh News",
         home: ChangeNotifierProvider(
             create: (BuildContext context) => NewsArticleListViewModel(),
-            child: const NewsList()));
+            child: const NewsListPage()));
   }
 }
